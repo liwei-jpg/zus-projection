@@ -10,7 +10,13 @@
 body {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
     sans-serif;
-  background: #050a16;
+ background: 
+ linear-gradient(
+    90deg, 
+  #4CA8FF 0%,     /* 浅亮蓝（Sky Blue / Bright Azure） */ 
+  #003F8C 50%,    /* 中等蓝（Royal Blue / Deep Azure） */
+  #001439 100%    /* 深海蓝（Midnight Navy / Deep Ocean Blue） */
+  );
   color: #e5ecff;
   line-height: 1.6;
 }
@@ -55,10 +61,11 @@ body {
   top: 0;
   z-index: 20;
   display: flex;
+  font-family:'Playfair Display', sans-serif;
   justify-content: space-between;
   align-items: center;
   padding: 16px 6vw;
-  background: rgba(5, 10, 22, 0.9);
+  background: rgba(5, 10, 22, 0.7);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.03);
 }
@@ -78,10 +85,51 @@ body {
   text-decoration: none;
   color: #dde6ff;
   font-size: 0.95rem;
+  transition: all 0.25s ease;
+  display: inline-block; /* 必须要，不然 transform 不会生效 */
 }
 
 .nav__links a:hover {
   color: #f7c744;
+  transform: translateY(-3px) scale(1.12);  /* 浮起 3px + 放大 12% */
+  color: #F7C744;                           /* Hover 时变成金色（可改） */
+}
+
+.inside-features {
+  display: flex;
+  gap: 36px;
+  margin-top: 34px;
+  justify-content: flex-start;   /* 或 center 都可以 */
+}
+
+/* FEATURE */
+.feature {
+  text-align: center;
+}
+
+.feature-icon {
+  width: 72px;
+  height: 72px;
+  background: #F7C744;
+  color: #1B2A4A;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 0.8rem;
+  font-weight: 700;
+  margin: 0 auto 16px;
+  box-shadow: 0 12px 25px rgba(247,199,68,0.45);
+  text-transform: capitalize;
+}
+
+.feature span {
+  font-weight: 700;
+  color: #F7C744;
+  font-size: 1rem;
+  text-align: center;
+  display: block;
 }
 
 /* HERO */
@@ -99,6 +147,8 @@ body {
   letter-spacing: 0.15em;
   font-size: 0.8rem;
   margin-bottom: 12px;
+  font-weight: 700;   /* 粗体 */
+  letter-spacing: 2px; /* 更专业（可选） */
 }
 
 .hero h1 {
@@ -116,6 +166,7 @@ body {
   color: #c0c8ec;
   max-width: 520px;
   margin-bottom: 24px;
+  font-weight: 600;    
 }
 
 .hero__buttons {

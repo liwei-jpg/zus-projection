@@ -5,6 +5,7 @@
   <title>ZUS × Projection – Coffee Projection Mapping</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Lora:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     /* REFINED & PERFECT INSIDE ZUS SECTION – smaller, elegant, on-brand */
     .inside-zus {
@@ -13,7 +14,7 @@
       padding: 0 6vw;
     }
     .inside-zus__wrapper {
-      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+      background: linear-gradient(135deg, #004AAD 0%, #1e293b 100%);
       border-radius: 36px;
       overflow: hidden;
       box-shadow: 0 25px 80px rgba(0,0,0,0.6);
@@ -318,14 +319,14 @@
     const canvas = document.getElementById('particles');
     const ctx = canvas.getContext('2d');
     canvas.width = innerWidth; canvas.height = document.querySelector('.hero').offsetHeight;
-    const particles = Array.from({length:50},()=>({
+    const particles = Array.from({length:100},()=>({
       x:Math.random()*canvas.width, y:Math.random()*canvas.height,
       size:Math.random()*3+1, speedX:Math.random()*0.6-0.3, speedY:Math.random()*0.6-0.3
     }));
     function draw(){
       ctx.clearRect(0,0,canvas.width,canvas.height);
       particles.forEach(p=>{
-        ctx.fillStyle='rgba(247,199,68,0.5)';
+        ctx.fillStyle='rgba(255,225,120,1)';                           // ←③ 粒子的颜色 + 亮度
         ctx.beginPath();
         ctx.arc(p.x+=p.speedX,p.y+=p.speedY,p.size,0,Math.PI*2);
         ctx.fill();
