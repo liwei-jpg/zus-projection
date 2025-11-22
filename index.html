@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>ZUS × Projection – Coffee Projection Mapping</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* REFINED & PERFECT INSIDE ZUS SECTION – smaller, elegant, on-brand */
+    .inside-zus {
+      max-width: 1300px;
+      margin: 100px auto;
+      padding: 0 6vw;
+    }
+    .inside-zus__wrapper {
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+      border-radius: 36px;
+      overflow: hidden;
+      box-shadow: 0 25px 80px rgba(0,0,0,0.6);
+      display: grid;
+      grid-template-columns: 1fr 1.1fr;
+      gap: 0;
+    }
+    .inside-zus__image {
+      position: relative;
+      overflow: hidden;
+    }
+    .inside-zus__image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.8s ease;
+    }
+    .inside-zus__image:hover img {
+      transform: scale(1.05);
+    }
+    .inside-zus__image::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(45deg, transparent 30%, rgba(15,23,42,0.6));
+    }
+    .inside-zus__content {
+      padding: 80px 70px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      color: #e2e8f0;
+    }
+    .inside-zus__content h2 {
+      font-size: 2.6rem;
+      font-weight: 900;
+      background: linear-gradient(90deg, #f7c744, #ffd700);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      margin-bottom: 20px;
+      line-height: 1.15;
+    }
+    .inside-zus__content p {
+      font-size: 1rem;
+      line-height: 1.75;
+      color: #cbd5e1;
+      margin-bottom: 18px;
+    }
+    .inside-features {
+      display: flex;
+      gap: 36px;
+      margin-top: 34px;
+    }
+    .feature {
+      text-align: center;
+    }
+    .feature-icon {
+      width: 72px;
+      height: 72px;
+      background: #f7c744;
+      color: #0f172a;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.9rem;
+      margin: 0 auto 12px;
+      box-shadow: 0 10px 28px rgba(247,199,68,0.4);
+    }
+    .feature span {
+      font-weight: 700;
+      color: #f7c744;
+      font-size: 0.92rem;
+      letter-spacing: 0.5px;
+    }
+
+    @media (max-width: 968px) {
+      .inside-zus__wrapper { grid-template-columns: 1fr; }
+      .inside-zus__image { order: -1; }
+      .inside-zus__image img { height: 360px; object-fit: cover; }
+      .inside-zus__content { padding: 70px 50px; text-align: center; }
+      .inside-zus__content h2 { font-size: 2.3rem; }
+      .inside-zus__content p { font-size: 0.98rem; }
+      .inside-features { justify-content: center; }
+    }
+    @media (max-width: 640px) {
+      .inside-zus__content { padding: 60px 30px; }
+      .inside-zus__content h2 { font-size: 2.1rem; }
+      .inside-features { flex-direction: column; align-items: center; gap: 26px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header class="nav">
+    <div class="nav__brand">ZUS × Projection</div>
+    <nav class="nav__links">
+      <a href="#home">Home</a>
+      <a href="#inside">Inside ZUS</a>
+      <a href="#drinks">Drinks</a>
+      <a href="#projection">Projection Mapping</a>
+      <a href="#loops">Loop Video</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section id="home" class="hero section" style="position:relative;overflow:hidden;">
+    <canvas class="particles-bg" id="particles"></canvas>
+    <div class="hero__text">
+      <p class="hero__tag">Where art meets coffee</p>
+      <h1 class="glow-title">
+        ZUS Coffee<br />
+        <span>Projection Mapping</span><br />
+        Experience
+      </h1>
+      <p class="hero__desc">
+        Discover how projection mapping transforms a normal coffee machine into a living canvas.
+      </p>
+      <div class="hero__buttons">
+        <a href="#loops" class="btn btn--primary">Watch the Loop</a>
+        <a href="#projection" class="btn btn--outline">View Gallery</a>
+      </div>
+    </div>
+    <div class="hero__image">
+      <img src="assets/hero-coffee.jpg" alt="ZUS Coffee machine with projection" />
+    </div>
+  </section>
+
+  <!-- PERFECT INSIDE ZUS SECTION -->
+  <section id="inside" class="inside-zus">
+    <div class="inside-zus__wrapper">
+      <div class="inside-zus__image">
+        <img src="assets/inside-zus.jpg" alt="Inside ZUS Coffee – modern Malaysian café" />
+      </div>
+      <div class="inside-zus__content">
+        <h2>More Than Just Coffee</h2>
+        <p>ZUS Coffee is a proud Malaysian-born brand that brings bold flavours, premium beans, and vibrant energy to every cup.</p>
+        <p>Step into a space filled with warm golden light, the aroma of freshly brewed coffee, and a community vibe made for connection and creativity.</p>
+        <p>We don’t just serve drinks — we create moments that fuel your day.</p>
+
+        <div class="inside-features">
+          <div class="feature">
+            <div class="feature-icon">Coffee</div>
+            <span>Premium Brews</span>
+          </div>
+          <div class="feature">
+            <div class="feature-icon">Lightning</div>
+            <span>Bold Energy</span>
+          </div>
+          <div class="feature">
+            <div class="feature-icon">Home</div>
+            <span>Your Third Place</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SIGNATURE DRINKS -->
+  <section id="drinks" class="section section--dark">
+    <div class="section__header">
+      <h2>Our <span>Signature Drinks</span></h2>
+      <p>Every drink can inspire a different projection mood: warm, calm, or bold.</p>
+    </div>
+    <div class="cards">
+      <article class="card">
+        <img src="assets/Not-Pistachio-Latte.png" alt="Not-Pistachio-Latte" />
+        <div class="card__body">
+          <h3>Not-Pistachio-Latte</h3>
+          <p>Strong, bold, and clean – perfect for dynamic, high-contrast visuals.</p>
+        </div>
+      </article>
+      <article class="card">
+        <img src="assets/Iced-Buttercreme-Latte.png" alt="Iced-Buttercreme-Latte" />
+        <div class="card__body">
+          <h3>Iced-Buttercreme-Latte</h3>
+          <p>Soft layers and latte art – ideal for smooth, slow looping motion.</p>
+        </div>
+      </article>
+      <article class="card">
+        <img src="assets/spanish_latte.png" alt="Spanish Latte" />
+        <div class="card__body">
+          <h3>Spanish Latte</h3>
+          <p>Golden highlights that match warm, glowing projection light.</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- PROJECTION GALLERY -->
+  <section id="projection" class="section">
+    <div class="section__header">
+      <h2>Projection Mapping <span>Gallery</span></h2>
+      <p>Simple, loopable animations designed for a coffee shop wall – like a living poster.</p>
+    </div>
+    <div class="gallery">
+      <figure class="gallery__item" data-video="assets/1. initial-scene.mp4">
+        <video class="gallery-video" loop muted playsinline preload="metadata">
+          <source src="assets/1. initial-scene.mp4" type="video/mp4">
+        </video>
+        <div class="play-icon">Play</div>
+        <figcaption>Loop 01 – Cat in the ZUS Machine</figcaption>
+      </figure>
+      <figure class="gallery__item" data-video="assets/2. Avocado-scene.mp4">
+        <video class="gallery-video" loop muted playsinline preload="metadata">
+          <source src="assets/2. Avocado-scene.mp4" type="video/mp4">
+        </video>
+        <div class="play-icon">Play</div>
+        <figcaption>Loop 02 – Avocado Flow</figcaption>
+      </figure>
+      <figure class="gallery__item" data-video="assets/3. strawberry-scene.mp4">
+        <video class="gallery-video" loop muted playsinline preload="metadata">
+          <source src="assets/3. strawberry-scene.mp4" type="video/mp4">
+        </video>
+        <div class="play-icon">Play</div>
+        <figcaption>Loop 03 – Strawberry Ripple</figcaption>
+      </figure>
+      <figure class="gallery__item" data-video="assets/4. grape-scene.mp4">
+        <video class="gallery-video" loop muted playsinline preload="metadata">
+          <source src="assets/4. grape-scene.mp4" type="video/mp4">
+        </video>
+        <div class="play-icon">Play</div>
+        <figcaption>Loop 04 – Grape Steam</figcaption>
+      </figure>
+      <figure class="gallery__item" data-video="assets/5. banana-scene.mp4">
+        <video class="gallery-video" loop muted playsinline preload="metadata">
+          <source src="assets/5. banana-scene.mp4" type="video/mp4">
+        </video>
+        <div class="play-icon">Play</div>
+        <figcaption>Loop 05 – Banana Wave</figcaption>
+      </figure>
+      <figure class="gallery__item" data-video="assets/6. with-coffee scene.mp4">
+        <video class="gallery-video" loop muted playsinline preload="metadata">
+          <source src="assets/6. with-coffee scene.mp4" type="video/mp4">
+        </video>
+        <div class="play-icon">Play</div>
+        <figcaption>Loop 06 – Coffee Rain</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- LOOP SHOWCASE -->
+  <section id="loops" class="section section--dark">
+    <div class="section__header">
+      <h2>Loop Animation <span>Showcase</span></h2>
+      <p>Short, seamless loops that can repeat all day without disturbing customers.</p>
+    </div>
+    <div class="video-wrapper">
+      <video controls loop muted class="video">
+        <source src="assets/6. with-coffee scene.mp4" type="video/mp4" />
+      </video>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="section">
+    <div class="section__header"><h2>About This <span>Project</span></h2></div>
+    <div class="about">
+      <p>This is a <strong>student concept project</strong> exploring projection mapping for ZUS Coffee...</p>
+      <p class="about__note">Note: This is not an official ZUS Coffee website – academic purposes only.</p>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="section section--dark">
+    <div class="section__header"><h2>Get in <span>Touch</span></h2></div>
+    <form class="contact-form" onsubmit="event.preventDefault(); alert('Demo only');">
+      <label>Name <input type="text" required /></label>
+      <label>Email <input type="email" required /></label>
+      <label>Message <textarea rows="4" required></textarea></label>
+      <button type="submit" class="btn btn--primary full-width">Send Message</button>
+    </form>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <p>© 2025 ZUS × Projection – Student Project</p>
+  </footer>
+
+  <!-- AUDIO + MODAL + PARTICLES + SCRIPTS -->
+  <div class="audio-toggle" onclick="const a=document.getElementById('cafeAudio'); a.paused?a.play():a.pause(); this.innerHTML=a.paused?'Play Café Ambiance':'Pause Café Ambiance';">
+    Play Café Ambiance
+  </div>
+  <audio id="cafeAudio" loop><source src="assets/cafe-ambience.mp3" type="audio/mp3"></audio>
+
+  <div id="videoModal" class="modal">
+    <div class="modal-content">
+      <span class="close">×</span>
+      <video id="modalVideo" controls loop muted class="modal-video">
+        <source src="" type="video/mp4">
+      </video>
+    </div>
+  </div>
+
+  <script>
+    // Particles
+    const canvas = document.getElementById('particles');
+    const ctx = canvas.getContext('2d');
+    canvas.width = innerWidth; canvas.height = document.querySelector('.hero').offsetHeight;
+    const particles = Array.from({length:50},()=>({
+      x:Math.random()*canvas.width, y:Math.random()*canvas.height,
+      size:Math.random()*3+1, speedX:Math.random()*0.6-0.3, speedY:Math.random()*0.6-0.3
+    }));
+    function draw(){
+      ctx.clearRect(0,0,canvas.width,canvas.height);
+      particles.forEach(p=>{
+        ctx.fillStyle='rgba(247,199,68,0.5)';
+        ctx.beginPath();
+        ctx.arc(p.x+=p.speedX,p.y+=p.speedY,p.size,0,Math.PI*2);
+        ctx.fill();
+        if(p.x<0||p.x>canvas.width) p.speedX*=-1;
+        if(p.y<0||p.y>canvas.height) p.speedY*=-1;
+      });
+      requestAnimationFrame(draw);
+    }
+    draw();
+
+    // Gallery hover + lightbox
+    document.querySelectorAll('.gallery__item').forEach(item => {
+      const video = item.querySelector('video');
+      item.addEventListener('mouseenter', () => video.play());
+      item.addEventListener('mouseleave', () => { video.pause(); video.currentTime = 0; });
+      item.addEventListener('click', () => {
+        const modal = document.getElementById('videoModal');
+        const modalVideo = document.getElementById('modalVideo');
+        modalVideo.querySelector('source').src = item.dataset.video;
+        modalVideo.load(); modal.style.display = 'flex'; modalVideo.play();
+      });
+    });
+    document.querySelector('.close').onclick = () => {
+      document.getElementById('videoModal').style.display = 'none';
+      document.getElementById('modalVideo').pause();
+    };
+    window.onclick = e => e.target === document.getElementById('videoModal') && (document.getElementById('videoModal').style.display = 'none');
+  </script>
+</body>
+</html>
