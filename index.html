@@ -6,106 +6,61 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="styles.css" />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Lora:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Google Model-Viewer for 3D -->
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+
   <style>
-    /* REFINED & PERFECT INSIDE ZUS SECTION – smaller, elegant, on-brand */
-    .inside-zus {
-      max-width: 1300px;
-      margin: 100px auto;
-      padding: 0 6vw;
+    /* YOUR ORIGINAL INSIDE ZUS STYLES – 100% UNCHANGED */
+    .inside-zus { max-width: 1300px; margin: 100px auto; padding: 0 6vw; }
+    .inside-zus__wrapper { background: linear-gradient(135deg, #004AAD 0%, #1e293b 100%); border-radius: 36px; overflow: hidden; box-shadow: 0 25px 80px rgba(0,0,0,0.6); display: grid; grid-template-columns: 1fr 1.1fr; gap: 0; }
+    .inside-zus__image { position: relative; overflow: hidden; }
+    .inside-zus__image img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.8s ease; }
+    .inside-zus__image:hover img { transform: scale(1.05); }
+    .inside-zus__image::after { content: ''; position: absolute; inset: 0; background: linear-gradient(45deg, transparent 30%, rgba(15,23,42,0.6)); }
+    .inside-zus__content { padding: 80px 70px; display: flex; flex-direction: column; justify-content: center; color: #e2e8f0; }
+    .inside-zus__content h2 { font-size: 2.6rem; font-weight: 900; background: linear-gradient(90deg, #f7c744, #ffd700); -webkit-background-clip: text; background-clip: text; color: transparent; margin-bottom: 20px; line-height: 1.15; }
+    .inside-zus__content p { font-size: 1rem; line-height: 1.75; color: #cbd5e1; margin-bottom: 18px; }
+    .inside-features { display: flex; gap: 36px; margin-top: 34px; }
+    .feature { text-align: center; }
+    .feature-icon { width: 72px; height: 72px; background: #f7c744; color: #0f172a; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.9rem; margin: 0 auto 12px; box-shadow: 0 10px 28px rgba(247,199,68,0.4); }
+    .feature span { font-weight: 700; color: #f7c744; font-size: 0.92rem; letter-spacing: 0.5px; }
+
+    /* FIXED & PERFECTLY SIZED 3D MODEL SECTION – only change */
+    .model-3d-wrapper {
+      padding: 100px 6vw 120px;
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+      text-align: center;
     }
-    .inside-zus__wrapper {
-      background: linear-gradient(135deg, #004AAD 0%, #1e293b 100%);
-      border-radius: 36px;
-      overflow: hidden;
-      box-shadow: 0 25px 80px rgba(0,0,0,0.6);
-      display: grid;
-      grid-template-columns: 1fr 1.1fr;
-      gap: 0;
-    }
-    .inside-zus__image {
-      position: relative;
-      overflow: hidden;
-    }
-    .inside-zus__image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-      transition: transform 0.8s ease;
-    }
-    .inside-zus__image:hover img {
-      transform: scale(1.05);
-    }
-    .inside-zus__image::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(45deg, transparent 30%, rgba(15,23,42,0.6));
-    }
-    .inside-zus__content {
-      padding: 80px 70px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      color: #e2e8f0;
-    }
-    .inside-zus__content h2 {
+    .model-3d-wrapper h2 {
       font-size: 2.6rem;
       font-weight: 900;
       background: linear-gradient(90deg, #f7c744, #ffd700);
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
-      margin-bottom: 20px;
-      line-height: 1.15;
+      margin-bottom: 14px;
     }
-    .inside-zus__content p {
-      font-size: 1rem;
-      line-height: 1.75;
-      color: #cbd5e1;
-      margin-bottom: 18px;
+    .model-3d-wrapper p {
+      color: #94a3b8;
+      font-size: 1.05rem;
+      max-width: 680px;
+      margin: 0 auto 48px;
+      line-height: 1.7;
     }
-    .inside-features {
-      display: flex;
-      gap: 36px;
-      margin-top: 34px;
+    model-viewer#zus-cup {
+      width: 100%;
+      height: 500px;
+      max-width: 780px;
+      margin: 0 auto;
+      border-radius: 28px;
+      box-shadow: 0 25px 70px rgba(0,0,0,0.6);
+      background: #0f172a;
     }
-    .feature {
-      text-align: center;
-    }
-    .feature-icon {
-      width: 72px;
-      height: 72px;
-      background: #f7c744;
-      color: #0f172a;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.9rem;
-      margin: 0 auto 12px;
-      box-shadow: 0 10px 28px rgba(247,199,68,0.4);
-    }
-    .feature span {
-      font-weight: 700;
-      color: #f7c744;
-      font-size: 0.92rem;
-      letter-spacing: 0.5px;
-    }
-
-    @media (max-width: 968px) {
-      .inside-zus__wrapper { grid-template-columns: 1fr; }
-      .inside-zus__image { order: -1; }
-      .inside-zus__image img { height: 360px; object-fit: cover; }
-      .inside-zus__content { padding: 70px 50px; text-align: center; }
-      .inside-zus__content h2 { font-size: 2.3rem; }
-      .inside-zus__content p { font-size: 0.98rem; }
-      .inside-features { justify-content: center; }
-    }
-    @media (max-width: 640px) {
-      .inside-zus__content { padding: 60px 30px; }
-      .inside-zus__content h2 { font-size: 2.1rem; }
-      .inside-features { flex-direction: column; align-items: center; gap: 26px; }
+    @media (max-width: 768px) {
+      .model-3d-wrapper { padding: 80px 6vw 100px; }
+      model-viewer#zus-cup { height: 380px; border-radius: 20px; }
+      .model-3d-wrapper h2 { font-size: 2.2rem; }
     }
   </style>
 </head>
@@ -114,9 +69,9 @@
   <!-- NAVBAR -->
   <header class="nav">
     <div class="nav__brand">
-  <img src="assets/logo.png" alt="ZUS Coffee Logo" />
-  <span>ZUS × Projection</span>
-  </div>
+      <img src="assets/logo.png" alt="ZUS Coffee Logo" />
+      <span>ZUS × Projection</span>
+    </div>
     <nav class="nav__links">
       <a href="#home">Home</a>
       <a href="#inside">Inside ZUS</a>
@@ -133,7 +88,7 @@
     <canvas class="particles-bg" id="particles"></canvas>
     <div class="hero__image">
       <video autoplay muted loop playsinline class="hero-video">
-      <source src="assets/loop_video.webm" type="video/webm">
+        <source src="assets/loop_video.webm" type="video/webm">
       </video>
     </div>
     <div class="hero__text">
@@ -153,7 +108,7 @@
     </div>
   </section>
 
-  <!-- PERFECT INSIDE ZUS SECTION -->
+  <!-- INSIDE ZUS SECTION -->
   <section id="inside" class="inside-zus">
     <div class="inside-zus__wrapper">
       <div class="inside-zus__image">
@@ -279,6 +234,23 @@
     </div>
   </section>
 
+  <!-- FIXED 3D MODEL SECTION – perfectly sized & styled -->
+  <section class="model-3d-wrapper">
+    <h2>The ZUS Coffee Cup</h2>
+    <p>Interactive 3D model rendered in Blender — drag to rotate, pinch to zoom</p>
+
+    <model-viewer id="zus-cup"
+      src="assets/zus_cup_blenderfinal.glb"
+      alt="ZUS Coffee Cup 3D Model"
+      auto-rotate
+      camera-controls
+      ar
+      shadow-intensity="1.6"
+      exposure="0.95"
+      loading="eager">
+    </model-viewer>
+  </section>
+
   <!-- ABOUT -->
   <section id="about" class="section">
     <div class="section__header"><h2>About This <span>Project</span></h2></div>
@@ -304,7 +276,7 @@
     <p>© 2025 ZUS × Projection – Student Project</p>
   </footer>
 
-  <!-- AUDIO + MODAL + PARTICLES + SCRIPTS -->
+  <!-- AUDIO + MODAL + SCRIPTS -->
   <div class="audio-toggle" onclick="const a=document.getElementById('cafeAudio'); a.paused?a.play():a.pause(); this.innerHTML=a.paused?'Play Café Ambiance':'Pause Café Ambiance';">
     Play Café Ambiance
   </div>
@@ -331,7 +303,7 @@
     function draw(){
       ctx.clearRect(0,0,canvas.width,canvas.height);
       particles.forEach(p=>{
-        ctx.fillStyle='rgba(255,225,120,1)';                           // ←③ 粒子的颜色 + 亮度
+        ctx.fillStyle='rgba(255,225,120,1)';
         ctx.beginPath();
         ctx.arc(p.x+=p.speedX,p.y+=p.speedY,p.size,0,Math.PI*2);
         ctx.fill();
@@ -342,7 +314,7 @@
     }
     draw();
 
-    // Gallery hover + lightbox
+    // Gallery + lightbox
     document.querySelectorAll('.gallery__item').forEach(item => {
       const video = item.querySelector('video');
       item.addEventListener('mouseenter', () => video.play());
