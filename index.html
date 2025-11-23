@@ -10,6 +10,13 @@
   <!-- Google Model-Viewer for 3D -->
   <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
 
+  <!-- Added: global smooth scrolling -->
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+  </style>
+
   <style>
     /* YOUR ORIGINAL INSIDE ZUS STYLES – 100% UNCHANGED */
     .inside-zus { max-width: 1300px; margin: 100px auto; padding: 0 6vw; }
@@ -61,6 +68,100 @@
       .model-3d-wrapper { padding: 80px 6vw 100px; }
       model-viewer#zus-cup { height: 380px; border-radius: 20px; }
       .model-3d-wrapper h2 { font-size: 2.2rem; }
+    }
+
+    /* ============================== */
+    /* Café ambience mini-player card */
+    /* ============================== */
+    .audio-toggle {
+      position: fixed;
+      left: 24px;
+      bottom: 24px;
+      z-index: 50;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 18px;
+      background: rgba(5, 10, 22, 0.95);
+      border-radius: 999px;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6);
+      border: 1px solid rgba(247, 199, 68, 0.2);
+      cursor: pointer;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      font-size: 0.9rem;
+    }
+
+    .audio-toggle__icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 999px;
+      background: #f7c744;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      color: #122043;
+      box-shadow: 0 8px 18px rgba(247, 199, 68, 0.6);
+      flex-shrink: 0;
+    }
+
+    .audio-toggle__info {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.2;
+    }
+
+    .audio-toggle__title {
+      font-weight: 600;
+      color: #ffffff;
+    }
+
+    .audio-toggle__subtitle {
+      font-size: 0.75rem;
+      color: #b5c0e6;
+    }
+
+    .audio-toggle__play {
+      margin-left: 8px;
+      width: 34px;
+      height: 34px;
+      border-radius: 999px;
+      border: none;
+      outline: none;
+      background: #1b2644;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+      color: #f7c744;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.7);
+      cursor: pointer;
+      transition: transform 0.15s ease, background 0.15s ease;
+      flex-shrink: 0;
+    }
+
+    .audio-toggle__play:hover {
+      transform: translateY(-1px) scale(1.05);
+      background: #26345a;
+    }
+
+    .audio-toggle.is-playing .audio-toggle__play {
+      background: #f7c744;
+      color: #122043;
+    }
+
+    .audio-toggle.is-playing .audio-toggle__subtitle {
+      color: #f7c744;
+    }
+
+    @media (max-width: 600px) {
+      .audio-toggle {
+        left: 12px;
+        right: 12px;
+        bottom: 16px;
+        justify-content: space-between;
+      }
     }
   </style>
 </head>
@@ -234,22 +335,61 @@
     </div>
   </section>
 
-  <!-- FIXED 3D MODEL SECTION – perfectly sized & styled -->
-  <section class="model-3d-wrapper">
-    <h2>The ZUS Coffee Cup</h2>
-    <p>Interactive 3D model rendered in Blender — drag to rotate, pinch to zoom</p>
+  <!-- 3D MODEL SECTION – business-focused + new model -->
+<section class="model-3d-wrapper" id="projection-cup">
+  <h2>ZUS Projection Thermos</h2>
+  <p>
+    Interactive 3D thermos rendered in Blender — drag to rotate, scroll or pinch to zoom,
+    and imagine how projection mapping can wrap around a real ZUS cup in-store.
+  </p>
 
-    <model-viewer id="zus-cup"
-      src="assets/zus_cup_blenderfinal.glb"
-      alt="ZUS Coffee Cup 3D Model"
-      auto-rotate
-      camera-controls
-      ar
-      shadow-intensity="1.6"
-      exposure="0.95"
-      loading="eager">
-    </model-viewer>
-  </section>
+  <div class="model-3d-grid">
+    <!-- 3D VIEWER -->
+    <div class="model-3d-viewer">
+      <model-viewer
+        id="zus-cup"
+        src="assets/cup_thermos_v1.glb"
+        alt="ZUS Projection Thermos 3D Model"
+        auto-rotate
+        camera-controls
+        ar
+        shadow-intensity="1.25"
+        exposure="0.95"
+        field-of-view="25deg"
+        camera-orbit="0deg 75deg 2.5m"
+        loading="eager"
+        style="--poster-color: transparent;"
+      ></model-viewer>
+    </div>
+
+    <!-- BUSINESS EXPLANATION -->
+    <div class="model-3d-info">
+      <h3>How this 3D cup supports ZUS Coffee</h3>
+      <ul>
+        <li>
+          <span>Projection-mapping mock-ups</span> – plan how graphics, fruits, and
+          characters will wrap around the cup before doing real projection tests.
+        </li>
+        <li>
+          <span>Marketing & social media visuals</span> – render clean, consistent
+          product shots for posters, menus, and Instagram without needing
+          physical photography every time.
+        </li>
+        <li>
+          <span>Interactive customer demo</span> – on the website, visitors can
+          freely rotate the cup to explore every angle, matching the “techy”
+          and modern ZUS brand.
+        </li>
+      </ul>
+      <p class="model-3d-note">
+        In a real café, the same thermos can be placed under the projector, so digital
+        loops from your projection mapping section appear directly on the cup body.
+        The 3D model is therefore a bridge between <strong>online concept</strong> and
+        <strong>offline in-store experience</strong>.
+      </p>
+    </div>
+  </div>
+</section>
 
   <!-- ABOUT -->
   <section id="about" class="section">
@@ -277,10 +417,21 @@
   </footer>
 
   <!-- AUDIO + MODAL + SCRIPTS -->
-  <div class="audio-toggle" onclick="const a=document.getElementById('cafeAudio'); a.paused?a.play():a.pause(); this.innerHTML=a.paused?'Play Café Ambiance':'Pause Café Ambiance';">
-    Play Café Ambiance
+  <!-- New mini-player markup (replaces plain text button) -->
+  <div class="audio-toggle">
+    <div class="audio-toggle__icon">♪</div>
+    <div class="audio-toggle__info">
+      <div class="audio-toggle__title">Café Ambience</div>
+      <div class="audio-toggle__subtitle">Tap to play in the background</div>
+    </div>
+    <button class="audio-toggle__play" type="button" aria-label="Play café ambience">
+      ▶
+    </button>
   </div>
-  <audio id="cafeAudio" loop><source src="assets/cafe-ambience.mp3" type="audio/mp3"></audio>
+
+  <audio id="cafeAudio" loop>
+    <source src="assets/cafe-ambience.wav" type="audio/wav">
+  </audio>
 
   <div id="videoModal" class="modal">
     <div class="modal-content">
@@ -331,6 +482,71 @@
       document.getElementById('modalVideo').pause();
     };
     window.onclick = e => e.target === document.getElementById('videoModal') && (document.getElementById('videoModal').style.display = 'none');
+
+    // Added: smooth scroll with sticky navbar offset
+    document.querySelectorAll('a[href^="#"]').forEach(link => {
+      link.addEventListener('click', function(e) {
+        const targetId = this.getAttribute('href').slice(1);
+        const target = document.getElementById(targetId);
+        if (!target) return;
+
+        e.preventDefault();
+
+        const header = document.querySelector('.nav');
+        const offset = header ? header.offsetHeight : 0;
+        const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - offset;
+
+        window.scrollTo({
+          top: targetPosition,
+          behavior: 'smooth'
+        });
+      });
+    });
+
+    // ======================================
+    // Café ambience mini-player interaction
+    // ======================================
+    const audioElement = document.getElementById('cafeAudio');
+    const audioCard = document.querySelector('.audio-toggle');
+    const playButton = document.querySelector('.audio-toggle__play');
+    const titleText = document.querySelector('.audio-toggle__title');
+    const subtitleText = document.querySelector('.audio-toggle__subtitle');
+
+    function updateAudioUI(isPlaying) {
+      if (!playButton || !audioCard) return;
+      audioCard.classList.toggle('is-playing', isPlaying);
+      playButton.textContent = isPlaying ? '❚❚' : '▶';
+      subtitleText.textContent = isPlaying
+        ? 'Playing softly in the background'
+        : 'Tap to play in the background';
+    }
+
+    function toggleAudio() {
+      if (!audioElement) return;
+      if (audioElement.paused) {
+        audioElement.play();
+        updateAudioUI(true);
+      } else {
+        audioElement.pause();
+        updateAudioUI(false);
+      }
+    }
+
+    // Click anywhere on the card OR the play button
+    if (audioCard) {
+      audioCard.addEventListener('click', (e) => {
+        // Avoid double-trigger issues
+        if (e.target.closest('.audio-toggle__play') || e.target.closest('.audio-toggle__icon') || e.target.closest('.audio-toggle__info')) {
+          toggleAudio();
+        }
+      });
+    }
+
+    if (audioElement) {
+      audioElement.addEventListener('play', () => updateAudioUI(true));
+      audioElement.addEventListener('pause', () => updateAudioUI(false));
+      audioElement.addEventListener('ended', () => updateAudioUI(false));
+    }
   </script>
 </body>
 </html>
