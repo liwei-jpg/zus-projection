@@ -658,3 +658,51 @@ model-viewer#zus-cup {
     font-size: 2.2rem;
   }
 }
+
+
+/* ============================================= */
+/* Signature Drinks – scale down & align visually */
+/* ============================================= */
+
+/* Slightly tighter padding so it doesn't feel taller than "More Than Just Coffee" */
+#drinks.section.section--dark {
+  padding-top: 60px;
+  padding-bottom: 70px;
+   max-width: 1100px;       /* same width as Inside ZUS wrapper */
+  margin: 60px auto;       /* center it, same spacing */
+  border-radius: 36px;     /* same corner rounding */
+  padding: 80px 60px; 
+}
+
+/* Make the heading a bit more compact just for this section */
+#drinks .section__header h2 {
+  font-size: 2.1rem;
+}
+
+/* Keep the three cards closer together and slightly smaller */
+#drinks .cards {
+  max-width: 1000px;          /* aligns visually with the Inside ZUS width */
+  margin: 0 auto;
+  gap: 30px;
+}
+
+/* Narrower cards so the drinks don’t look oversized */
+#drinks .card {
+  max-width: 320px;
+}
+
+/* Actually shrink the drink images */
+#drinks .card img {
+  max-height: 360px;          /* was 460px */
+  padding: 20px 20px 0 20px;  /* less padding = smaller overall block */
+}
+
+/* Make the text area a bit lighter and airier */
+#drinks .card__body {
+  padding: 22px 20px 26px;
+}
+
+/* Subtle hover effect to keep it premium but not too “heavy” */
+#drinks .card:hover {
+  transform: translateY(-8px) scale(0.98);
+}
