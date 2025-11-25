@@ -391,7 +391,7 @@
   </div>
 </section>
 
-  <!-- ABOUT -->
+  <!-- ABOUT 
   <section id="about" class="section">
     <div class="section__header"><h2>About This <span>Project</span></h2></div>
     <div class="about">
@@ -399,17 +399,85 @@
       <p class="about__note">Note: This is not an official ZUS Coffee website – academic purposes only.</p>
     </div>
   </section>
-
+-->
   <!-- CONTACT -->
   <section id="contact" class="section section--dark">
     <div class="section__header"><h2>Get in <span>Touch</span></h2></div>
-    <form class="contact-form" onsubmit="event.preventDefault(); alert('Demo only');">
-      <label>Name <input type="text" required /></label>
-      <label>Email <input type="email" required /></label>
-      <label>Message <textarea rows="4" required></textarea></label>
-      <button type="submit" class="btn btn--primary full-width">Send Message</button>
-    </form>
+
+    <div class="contact-grid">
+      <!-- LEFT: social + store locator -->
+      <div class="contact-left">
+        <!-- Social / official channels -->
+        <h3 class="contact-subtitle">Connect with ZUS online</h3>
+        <div class="social-links">
+          <a class="social-card" href="https://zuscoffee.com/" target="_blank" rel="noopener">
+            <div class="social-icon">🌐</div>
+            <div class="social-text">
+              <h4>Official Website</h4>
+              <p>Check out the full menu, latest promotions, and new product launches.</p>
+            </div>
+          </a>
+
+          <a class="social-card" href="https://www.instagram.com/zus.coffee/" target="_blank" rel="noopener">
+            <div class="social-icon">📸</div>
+            <div class="social-text">
+              <h4>Instagram</h4>
+              <p>Follow daily coffee shots, behind-the-scenes stories, and campaign teasers.</p>
+            </div>
+          </a>
+
+          <a class="social-card" href="https://www.facebook.com/zuscoffee" target="_blank" rel="noopener">
+            <div class="social-icon">👍</div>
+            <div class="social-text">
+              <h4>Facebook</h4>
+              <p>Stay updated with events, announcements, and community activities.</p>
+            </div>
+          </a>
+        </div>
+
+        <!-- Store finder -->
+        <h3 class="contact-subtitle">Find a nearby ZUS Coffee</h3>
+        <button type="button" class="btn btn--outline detect-btn" id="detectLocationBtn">
+          Detect my location
+        </button>
+        <p class="location-note" id="locationNote">
+          Or pick a store from the list below.
+        </p>
+
+        <div class="store-layout">
+          <!-- List -->
+          <div class="store-list" id="storeList">
+            <!-- Populated by JS -->
+          </div>
+
+          <!-- Map -->
+          <div class="store-map">
+            <iframe
+              id="storeMap"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              src="https://www.google.com/maps?q=3.1349,101.6299&z=14&output=embed">
+            </iframe>
+            <div class="store-links">
+              <a id="gmapsLink" href="#" target="_blank" class="map-link">Open in Google Maps</a>
+              <a id="wazeLink" href="#" target="_blank" class="map-link">Open in Waze</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT: existing contact form -->
+      <div class="contact-right">
+        <form class="contact-form" onsubmit="event.preventDefault(); alert('Demo only');">
+          <label>Name <input type="text" required /></label>
+          <label>Email <input type="email" required /></label>
+          <label>Message <textarea rows="4" required></textarea></label>
+          <button type="submit" class="btn btn--primary full-width">Send Message</button>
+        </form>
+      </div>
+    </div>
   </section>
+
 
   <!-- FOOTER -->
   <footer class="footer">
@@ -547,6 +615,156 @@
       audioElement.addEventListener('pause', () => updateAudioUI(false));
       audioElement.addEventListener('ended', () => updateAudioUI(false));
     }
+
+        // ================================
+    // ZUS store locator + map links
+    // ================================
+    const zusStores = [
+      {
+        id: 'midvalley',
+        name: 'ZUS Coffee – Mid Valley Megamall',
+        address: 'Mid Valley City, Kuala Lumpur',
+        lat: 3.1175,
+        lng: 101.6770
+      },
+      {
+        id: 'pavilion',
+        name: 'ZUS Coffee – Pavilion Kuala Lumpur',
+        address: 'Bukit Bintang, Kuala Lumpur',
+        lat: 3.1481,
+        lng: 101.7130
+      },
+      {
+        id: 'sunway',
+        name: 'ZUS Coffee – Sunway Pyramid',
+        address: 'Bandar Sunway, Selangor',
+        lat: 3.0725,
+        lng: 101.6070
+      }
+      // 👉 You can add more real stores here later
+    ];
+
+    const storeListEl   = document.getElementById('storeList');
+    const storeMapEl    = document.getElementById('storeMap');
+    const detectBtnEl   = document.getElementById('detectLocationBtn');
+    const locationNoteEl = document.getElementById('locationNote');
+    const gmapsLinkEl   = document.getElementById('gmapsLink');
+    const wazeLinkEl    = document.getElementById('wazeLink');
+
+    function updateSelectedStore(store, smoothScroll) {
+      if (!store) return;
+
+      // toggle active item
+      document.querySelectorAll('.store-item').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.id === store.id);
+      });
+
+      // update map iframe
+      if (storeMapEl) {
+        storeMapEl.src =
+          `https://www.google.com/maps?q=${store.lat},${store.lng}&z=16&output=embed`;
+      }
+
+      // external links
+      if (gmapsLinkEl) {
+        gmapsLinkEl.href =
+          `https://www.google.com/maps/dir/?api=1&destination=${store.lat},${store.lng}`;
+      }
+      if (wazeLinkEl) {
+        wazeLinkEl.href =
+          `https://waze.com/ul?ll=${store.lat},${store.lng}&navigate=yes`;
+      }
+
+      if (smoothScroll && storeMapEl) {
+        storeMapEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    }
+
+    function renderStoreList(data) {
+      if (!storeListEl) return;
+      storeListEl.innerHTML = '';
+
+      data.forEach((store, index) => {
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'store-item' + (index === 0 ? ' active' : '');
+        btn.dataset.id = store.id;
+        btn.innerHTML = `
+          <h4>${store.name}</h4>
+          <p>${store.address}</p>
+          ${
+            typeof store.distanceKm === 'number'
+              ? `<p class="store-distance">Approx. ${store.distanceKm.toFixed(1)} km away</p>`
+              : ''
+          }
+        `;
+        btn.addEventListener('click', () => updateSelectedStore(store, true));
+        storeListEl.appendChild(btn);
+      });
+
+      updateSelectedStore(data[0], false);
+    }
+
+    function haversineKm(lat1, lon1, lat2, lon2) {
+      const R = 6371; // Earth radius in km
+      const toRad = d => d * Math.PI / 180;
+      const dLat = toRad(lat2 - lat1);
+      const dLon = toRad(lon2 - lon1);
+      const a =
+        Math.sin(dLat / 2) ** 2 +
+        Math.cos(toRad(lat1)) *
+          Math.cos(toRad(lat2)) *
+          Math.sin(dLon / 2) ** 2;
+      const c = 2 * Math.asin(Math.sqrt(a));
+      return R * c;
+    }
+
+    if (storeListEl) {
+      // initial list (no distance yet)
+      renderStoreList(zusStores);
+    }
+
+    if (detectBtnEl && navigator.geolocation) {
+      detectBtnEl.addEventListener('click', () => {
+        detectBtnEl.disabled = true;
+        detectBtnEl.textContent = 'Detecting…';
+
+        navigator.geolocation.getCurrentPosition(
+          pos => {
+            const { latitude, longitude } = pos.coords;
+            const withDistance = zusStores
+              .map(store => ({
+                ...store,
+                distanceKm: haversineKm(
+                  latitude,
+                  longitude,
+                  store.lat,
+                  store.lng
+                )
+              }))
+              .sort((a, b) => a.distanceKm - b.distanceKm);
+
+            locationNoteEl.textContent =
+              'Sorted by distance from your current location.';
+            renderStoreList(withDistance);
+
+            detectBtnEl.textContent = 'Location detected';
+          },
+          err => {
+            console.warn('Geolocation failed:', err);
+            locationNoteEl.textContent =
+              'Could not access your location. Please pick a store from the list.';
+            detectBtnEl.disabled = false;
+            detectBtnEl.textContent = 'Detect my location';
+          }
+        );
+      });
+    } else if (detectBtnEl) {
+      detectBtnEl.disabled = true;
+      locationNoteEl.textContent =
+        'Location detection is not available in this browser. Please pick a store from the list.';
+    }
+
   </script>
 </body>
 </html>

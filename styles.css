@@ -706,3 +706,183 @@ model-viewer#zus-cup {
 #drinks .card:hover {
   transform: translateY(-8px) scale(0.98);
 }
+
+
+/* ========================= */
+/* Contact section extras    */
+/* ========================= */
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+  gap: 40px;
+  align-items: flex-start;
+}
+
+.contact-left,
+.contact-right {
+  width: 100%;
+}
+
+.contact-subtitle {
+  font-size: 1.05rem;
+  margin-bottom: 10px;
+  color: #e5ecff;
+}
+
+/* Social links */
+.social-links {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 16px;
+  margin-bottom: 28px;
+}
+
+.social-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 12px 14px;
+  border-radius: 18px;
+  background: rgba(5, 10, 22, 0.9);
+  border: 1px solid rgba(247, 199, 68, 0.18);
+  text-decoration: none;
+  color: #e5ecff;
+  transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+}
+
+.social-card:hover {
+  transform: translateY(-3px);
+  border-color: #f7c744;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.7);
+}
+
+.social-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 999px;
+  background: #f7c744;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  color: #122043;
+  flex-shrink: 0;
+}
+
+.social-text h4 {
+  font-size: 0.98rem;
+  margin-bottom: 3px;
+  color: #f7c744;
+}
+
+.social-text p {
+  font-size: 0.86rem;
+  color: #c0c8ec;
+}
+
+/* Store locator layout */
+.detect-btn {
+  margin-top: 4px;
+  margin-bottom: 6px;
+}
+
+.location-note {
+  font-size: 0.8rem;
+  color: #9ca3c7;
+  margin-bottom: 10px;
+}
+
+.store-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
+  gap: 18px;
+}
+
+.store-list {
+  max-height: 260px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.store-item {
+  width: 100%;
+  text-align: left;
+  padding: 10px 12px;
+  border-radius: 14px;
+  border: 1px solid #273154;
+  background: #050a16;
+  color: #e5ecff;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: border-color 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+}
+
+.store-item h4 {
+  font-size: 0.95rem;
+  color: #f7c744;
+  margin-bottom: 2px;
+}
+
+.store-item p {
+  font-size: 0.8rem;
+  color: #b5c0e6;
+}
+
+.store-distance {
+  font-size: 0.78rem;
+  color: #a5b4fc;
+  margin-top: 3px;
+}
+
+.store-item.active {
+  border-color: #f7c744;
+  box-shadow: 0 0 0 1px rgba(247, 199, 68, 0.4);
+  background: radial-gradient(circle at top, #111827 0%, #020617 70%);
+}
+
+/* Map box */
+.store-map iframe {
+  width: 100%;
+  height: 260px;
+  border: 0;
+  border-radius: 18px;
+  box-shadow: 0 20px 55px rgba(0, 0, 0, 0.7);
+  background: #020617;
+}
+
+.store-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.map-link {
+  font-size: 0.82rem;
+  padding: 6px 12px;
+  border-radius: 999px;
+  border: 1px solid #f7c744;
+  color: #f7c744;
+  text-decoration: none;
+  background: transparent;
+  transition: background 0.18s ease, color 0.18s ease;
+}
+
+.map-link:hover {
+  background: rgba(247, 199, 68, 0.12);
+}
+
+/* Contact responsive */
+@media (max-width: 900px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .store-layout {
+    grid-template-columns: 1fr;
+  }
+}
