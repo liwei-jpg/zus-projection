@@ -15,9 +15,7 @@
     html {
       scroll-behavior: smooth;
     }
-  </style>
 
-  <style>
     /* YOUR ORIGINAL INSIDE ZUS STYLES – 100% UNCHANGED */
     .inside-zus { max-width: 1300px; margin: 100px auto; padding: 0 6vw; }
     .inside-zus__wrapper { background: linear-gradient(135deg, #004AAD 0%, #1e293b 100%); border-radius: 36px; overflow: hidden; box-shadow: 0 25px 80px rgba(0,0,0,0.6); display: grid; grid-template-columns: 1fr 1.1fr; gap: 0; }
@@ -322,84 +320,62 @@
     </div>
   </section>
 
-  <!-- LOOP SHOWCASE 
-  <section id="loops" class="section section--dark">
-    <div class="section__header">
-      <h2>Loop Animation <span>Showcase</span></h2>
-      <p>Short, seamless loops that can repeat all day without disturbing customers.</p>
-    </div>
-    <div class="video-wrapper">
-      <video controls loop muted class="video">
-        <source src="assets/6. with-coffee scene.mp4" type="video/mp4" />
-      </video>
-    </div>
-  </section>
--->
   <!-- 3D MODEL SECTION – business-focused + new model -->
-<section class="model-3d-wrapper" id="projection-cup">
-  <h2>ZUS Projection Thermos</h2>
-  <p>
-    Interactive 3D thermos rendered in Blender — drag to rotate, scroll or pinch to zoom,
-    and imagine how projection mapping can wrap around a real ZUS cup in-store.
-  </p>
+  <section class="model-3d-wrapper" id="projection-cup">
+    <h2>ZUS Projection Thermos</h2>
+    <p>
+      Interactive 3D thermos rendered in Blender — drag to rotate, scroll or pinch to zoom,
+      and imagine how projection mapping can wrap around a real ZUS cup in-store.
+    </p>
 
-  <div class="model-3d-grid">
-    <!-- 3D VIEWER -->
-    <div class="model-3d-viewer">
-      <model-viewer
-        id="zus-cup"
-        src="assets/cup_thermos_v1.glb"
-        alt="ZUS Projection Thermos 3D Model"
-        auto-rotate
-        camera-controls
-        ar
-        shadow-intensity="1.25"
-        exposure="0.95"
-        field-of-view="25deg"
-        camera-orbit="0deg 75deg 2.5m"
-        loading="eager"
-        style="--poster-color: transparent;"
-      ></model-viewer>
-    </div>
+    <div class="model-3d-grid">
+      <!-- 3D VIEWER -->
+      <div class="model-3d-viewer">
+        <model-viewer
+          id="zus-cup"
+          src="assets/cup_thermos_v1.glb"
+          alt="ZUS Projection Thermos 3D Model"
+          auto-rotate
+          camera-controls
+          ar
+          shadow-intensity="1.25"
+          exposure="0.95"
+          field-of-view="25deg"
+          camera-orbit="0deg 75deg 2.5m"
+          loading="eager"
+          style="--poster-color: transparent;"
+        ></model-viewer>
+      </div>
 
-    <!-- BUSINESS EXPLANATION -->
-    <div class="model-3d-info">
-      <h3>How this 3D cup supports ZUS Coffee</h3>
-      <ul>
-        <li>
-          <span>Projection-mapping mock-ups</span> – plan how graphics, fruits, and
-          characters will wrap around the cup before doing real projection tests.
-        </li>
-        <li>
-          <span>Marketing & social media visuals</span> – render clean, consistent
-          product shots for posters, menus, and Instagram without needing
-          physical photography every time.
-        </li>
-        <li>
-          <span>Interactive customer demo</span> – on the website, visitors can
-          freely rotate the cup to explore every angle, matching the “techy”
-          and modern ZUS brand.
-        </li>
-      </ul>
-      <p class="model-3d-note">
-        In a real café, the same thermos can be placed under the projector, so digital
-        loops from your projection mapping section appear directly on the cup body.
-        The 3D model is therefore a bridge between <strong>online concept</strong> and
-        <strong>offline in-store experience</strong>.
-      </p>
-    </div>
-  </div>
-</section>
-
-  <!-- ABOUT 
-  <section id="about" class="section">
-    <div class="section__header"><h2>About This <span>Project</span></h2></div>
-    <div class="about">
-      <p>This is a <strong>student concept project</strong> exploring projection mapping for ZUS Coffee...</p>
-      <p class="about__note">Note: This is not an official ZUS Coffee website – academic purposes only.</p>
+      <!-- BUSINESS EXPLANATION -->
+      <div class="model-3d-info">
+        <h3>How this 3D cup supports ZUS Coffee</h3>
+        <ul>
+          <li>
+            <span>Projection-mapping mock-ups</span> – plan how graphics, fruits, and
+            characters will wrap around the cup before doing real projection tests.
+          </li>
+          <li>
+            <span>Marketing & social media visuals</span> – render clean, consistent
+            product shots for posters, menus, and Instagram without needing
+            physical photography every time.
+          </li>
+          <li>
+            <span>Interactive customer demo</span> – on the website, visitors can
+            freely rotate the cup to explore every angle, matching the “techy”
+            and modern ZUS brand.
+          </li>
+        </ul>
+        <p class="model-3d-note">
+          In a real café, the same thermos can be placed under the projector, so digital
+          loops from your projection mapping section appear directly on the cup body.
+          The 3D model is therefore a bridge between <strong>online concept</strong> and
+          <strong>offline in-store experience</strong>.
+        </p>
+      </div>
     </div>
   </section>
--->
+
   <!-- CONTACT -->
   <section id="contact" class="section section--dark">
     <div class="section__header"><h2>Get in <span>Touch</span></h2></div>
@@ -410,7 +386,8 @@
         <!-- Social / official channels -->
         <h3 class="contact-subtitle">Connect with ZUS online</h3>
         <div class="social-links">
-          <a class="social-card" href="https://zuscoffee.com/" target="_blank" rel="noopener">
+          <!-- IDs added here -->
+          <a id="zusWebsiteLink" class="social-card" href="https://zuscoffee.com/" target="_blank" rel="noopener noreferrer">
             <div class="social-icon">🌐</div>
             <div class="social-text">
               <h4>Official Website</h4>
@@ -418,7 +395,7 @@
             </div>
           </a>
 
-          <a class="social-card" href="https://www.instagram.com/zus.coffee/" target="_blank" rel="noopener">
+          <a id="zusInstagramLink" class="social-card" href="https://www.instagram.com/zus.coffee/" target="_blank" rel="noopener noreferrer">
             <div class="social-icon">📸</div>
             <div class="social-text">
               <h4>Instagram</h4>
@@ -426,7 +403,7 @@
             </div>
           </a>
 
-          <a class="social-card" href="https://www.facebook.com/zuscoffee" target="_blank" rel="noopener">
+          <a id="zusFacebookLink" class="social-card" href="https://www.facebook.com/zuscoffee" target="_blank" rel="noopener noreferrer">
             <div class="social-icon">👍</div>
             <div class="social-text">
               <h4>Facebook</h4>
@@ -477,7 +454,6 @@
       </div>
     </div>
   </section>
-
 
   <!-- FOOTER -->
   <footer class="footer">
@@ -603,7 +579,6 @@
     // Click anywhere on the card OR the play button
     if (audioCard) {
       audioCard.addEventListener('click', (e) => {
-        // Avoid double-trigger issues
         if (e.target.closest('.audio-toggle__play') || e.target.closest('.audio-toggle__icon') || e.target.closest('.audio-toggle__info')) {
           toggleAudio();
         }
@@ -616,154 +591,182 @@
       audioElement.addEventListener('ended', () => updateAudioUI(false));
     }
 
-        // ================================
-    // ZUS store locator + map links
-    // ================================
-    const zusStores = [
-      {
-        id: 'midvalley',
-        name: 'ZUS Coffee – Mid Valley Megamall',
-        address: 'Mid Valley City, Kuala Lumpur',
-        lat: 3.1175,
-        lng: 101.6770
-      },
-      {
-        id: 'pavilion',
-        name: 'ZUS Coffee – Pavilion Kuala Lumpur',
-        address: 'Bukit Bintang, Kuala Lumpur',
-        lat: 3.1481,
-        lng: 101.7130
-      },
-      {
-        id: 'sunway',
-        name: 'ZUS Coffee – Sunway Pyramid',
-        address: 'Bandar Sunway, Selangor',
-        lat: 3.0725,
-        lng: 101.6070
-      }
-      // 👉 You can add more real stores here later
+    // ---------------------------------------------------------
+    // 3. STORE DATABASE (Expanded for accuracy) – FIXED VERSION
+    // ---------------------------------------------------------
+    const allStores = [
+        // KUALA LUMPUR
+        { id: 'kl1', name: 'ZUS Coffee - Suria KLCC', lat: 3.1579, lng: 101.7116, address: 'Suria KLCC, Kuala Lumpur' },
+        { id: 'kl2', name: 'ZUS Coffee - Pavilion KL', lat: 3.1485, lng: 101.7139, address: 'Pavilion, Bukit Bintang' },
+        { id: 'kl3', name: 'ZUS Coffee - Mid Valley', lat: 3.1176, lng: 101.6775, address: 'Mid Valley Megamall' },
+        { id: 'kl4', name: 'ZUS Coffee - KL East Mall', lat: 3.2248, lng: 101.7303, address: 'KL East Mall' },
+        { id: 'kl5', name: 'ZUS Coffee - Wangsa Walk', lat: 3.1983, lng: 101.7423, address: 'Wangsa Walk Mall' },
+        { id: 'kl6', name: 'ZUS Coffee - NU Sentral', lat: 3.1334, lng: 101.6869, address: 'NU Sentral' },
+        { id: 'kl7', name: 'ZUS Coffee - Avenue K', lat: 3.1593, lng: 101.7135, address: 'Avenue K Shopping Mall' },
+        { id: 'kl8', name: 'ZUS Coffee - Intermark', lat: 3.1614, lng: 101.7197, address: 'The Intermark Mall' },
+
+        // SELANGOR
+        { id: 'sel1', name: 'ZUS Coffee - Sunway Pyramid', lat: 3.0731, lng: 101.6076, address: 'Sunway Pyramid' },
+        { id: 'sel2', name: 'ZUS Coffee - 1 Utama', lat: 3.1504, lng: 101.6155, address: '1 Utama Shopping Centre' },
+        { id: 'sel3', name: 'ZUS Coffee - IOI City Mall', lat: 2.9701, lng: 101.7144, address: 'IOI City Mall, Putrajaya' },
+        { id: 'sel4', name: 'ZUS Coffee - Setia City Mall', lat: 3.1090, lng: 101.4597, address: 'Setia City Mall' },
+        { id: 'sel5', name: 'ZUS Coffee - Paradigm Mall', lat: 3.1052, lng: 101.5959, address: 'Paradigm Mall PJ' },
+        { id: 'sel6', name: 'ZUS Coffee - The Curve', lat: 3.1578, lng: 101.6117, address: 'Mutiara Damansara' },
+        { id: 'sel7', name: 'ZUS Coffee - SS15 Subang', lat: 3.0747, lng: 101.5898, address: 'SS15, Subang Jaya' },
+        { id: 'sel8', name: 'ZUS Coffee - Cyberjaya', lat: 2.9234, lng: 101.6468, address: 'Shaftsbury Square' },
+
+        // JOHOR
+        { id: 'jhr1', name: 'ZUS Coffee - Mid Valley Southkey', lat: 1.5011, lng: 103.7770, address: 'Johor Bahru' },
+        { id: 'jhr2', name: 'ZUS Coffee - Paradigm Mall JB', lat: 1.5152, lng: 103.6849, address: 'Skudai, JB' },
+        { id: 'jhr3', name: 'ZUS Coffee - Mount Austin', lat: 1.5644, lng: 103.7774, address: 'Mount Austin' },
+
+        // PENANG
+        { id: 'png1', name: 'ZUS Coffee - Gurney Plaza', lat: 5.4373, lng: 100.3096, address: 'George Town' },
+        { id: 'png2', name: 'ZUS Coffee - Queensbay Mall', lat: 5.3331, lng: 100.3065, address: 'Bayan Lepas' },
+        { id: 'png3', name: 'ZUS Coffee - Sunway Carnival', lat: 5.3989, lng: 100.3986, address: 'Seberang Jaya' },
+
+        // PERAK
+        { id: 'prk1', name: 'ZUS Coffee - Ipoh Parade', lat: 4.5968, lng: 101.0913, address: 'Ipoh' },
+        { id: 'prk2', name: 'ZUS Coffee - Taiping Sentral', lat: 4.8647, lng: 100.7259, address: 'Taiping' },
+
+        // MELAKA
+        { id: 'mel1', name: 'ZUS Coffee - Dataran Pahlawan', lat: 2.1895, lng: 102.2515, address: 'Melaka City' },
+        { id: 'mel2', name: 'ZUS Coffee - Jonker Street', lat: 2.1956, lng: 102.2478, address: 'Jalan Hang Jebat' }
     ];
 
-    const storeListEl   = document.getElementById('storeList');
-    const storeMapEl    = document.getElementById('storeMap');
-    const detectBtnEl   = document.getElementById('detectLocationBtn');
+    // UI References
+    const storeListEl = document.getElementById('storeList');
+    const storeMapEl = document.getElementById('storeMap');
+    const detectBtnEl = document.getElementById('detectLocationBtn');
     const locationNoteEl = document.getElementById('locationNote');
-    const gmapsLinkEl   = document.getElementById('gmapsLink');
-    const wazeLinkEl    = document.getElementById('wazeLink');
+    const gmapsLinkEl = document.getElementById('gmapsLink');
+    const wazeLinkEl = document.getElementById('wazeLink');
 
-    function updateSelectedStore(store, smoothScroll) {
-      if (!store) return;
-
-      // toggle active item
-      document.querySelectorAll('.store-item').forEach(btn => {
-        btn.classList.toggle('active', btn.dataset.id === store.id);
-      });
-
-      // update map iframe
-      if (storeMapEl) {
-        storeMapEl.src =
-          `https://www.google.com/maps?q=${store.lat},${store.lng}&z=16&output=embed`;
-      }
-
-      // external links
-      if (gmapsLinkEl) {
-        gmapsLinkEl.href =
-          `https://www.google.com/maps/dir/?api=1&destination=${store.lat},${store.lng}`;
-      }
-      if (wazeLinkEl) {
-        wazeLinkEl.href =
-          `https://waze.com/ul?ll=${store.lat},${store.lng}&navigate=yes`;
-      }
-
-      if (smoothScroll && storeMapEl) {
-        storeMapEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      }
-    }
-
+    // Render Function
     function renderStoreList(data) {
-      if (!storeListEl) return;
-      storeListEl.innerHTML = '';
+        storeListEl.innerHTML = '';
+        data.forEach((store, index) => {
+            const div = document.createElement('div');
+            div.className = 'store-item' + (index === 0 ? ' active' : '');
+            div.innerHTML = `
+                <h4>${store.name}</h4>
+                <p>${store.address}</p>
+                ${store.distance ? `<span class="store-distance">${store.distance.toFixed(1)} km away</span>` : ''}
+            `;
+            div.addEventListener('click', () => {
+                // Update Active State
+                document.querySelectorAll('.store-item').forEach(el => el.classList.remove('active'));
+                div.classList.add('active');
+                updateMap(store);
+            });
+            storeListEl.appendChild(div);
+        });
 
-      data.forEach((store, index) => {
-        const btn = document.createElement('button');
-        btn.type = 'button';
-        btn.className = 'store-item' + (index === 0 ? ' active' : '');
-        btn.dataset.id = store.id;
-        btn.innerHTML = `
-          <h4>${store.name}</h4>
-          <p>${store.address}</p>
-          ${
-            typeof store.distanceKm === 'number'
-              ? `<p class="store-distance">Approx. ${store.distanceKm.toFixed(1)} km away</p>`
-              : ''
-          }
-        `;
-        btn.addEventListener('click', () => updateSelectedStore(store, true));
-        storeListEl.appendChild(btn);
-      });
-
-      updateSelectedStore(data[0], false);
+        // Update map to the first store in the list automatically
+        if (data.length > 0) updateMap(data[0]);
     }
 
-    function haversineKm(lat1, lon1, lat2, lon2) {
-      const R = 6371; // Earth radius in km
-      const toRad = d => d * Math.PI / 180;
-      const dLat = toRad(lat2 - lat1);
-      const dLon = toRad(lon2 - lon1);
-      const a =
-        Math.sin(dLat / 2) ** 2 +
-        Math.cos(toRad(lat1)) *
-          Math.cos(toRad(lat2)) *
-          Math.sin(dLon / 2) ** 2;
-      const c = 2 * Math.asin(Math.sqrt(a));
-      return R * c;
+    // Map Updater
+    function updateMap(store) {
+        storeMapEl.src = `https://www.google.com/maps?q=${store.lat},${store.lng}&z=15&output=embed`;
+        gmapsLinkEl.href = `https://www.google.com/maps/dir/?api=1&destination=${store.lat},${store.lng}`;
+        wazeLinkEl.href = `https://waze.com/ul?ll=${store.lat},${store.lng}&navigate=yes`;
     }
 
-    if (storeListEl) {
-      // initial list (no distance yet)
-      renderStoreList(zusStores);
+    // Distance Calculator (Haversine Formula)
+    function calculateDistance(lat1, lon1, lat2, lon2) {
+        const R = 6371; // Radius of earth in km
+        const dLat = (lat2 - lat1) * Math.PI / 180;
+        const dLon = (lon2 - lon1) * Math.PI / 180;
+        const a = Math.sin(dLat/2) * Math.sin(dLat/2) +
+                  Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) * Math.sin(dLon/2) * Math.sin(dLon/2);
+        const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+        return R * c;
     }
 
-    if (detectBtnEl && navigator.geolocation) {
+    // Location Detection Logic
+    if (detectBtnEl) {
       detectBtnEl.addEventListener('click', () => {
-        detectBtnEl.disabled = true;
-        detectBtnEl.textContent = 'Detecting…';
-
-        navigator.geolocation.getCurrentPosition(
-          pos => {
-            const { latitude, longitude } = pos.coords;
-            const withDistance = zusStores
-              .map(store => ({
-                ...store,
-                distanceKm: haversineKm(
-                  latitude,
-                  longitude,
-                  store.lat,
-                  store.lng
-                )
-              }))
-              .sort((a, b) => a.distanceKm - b.distanceKm);
-
-            locationNoteEl.textContent =
-              'Sorted by distance from your current location.';
-            renderStoreList(withDistance);
-
-            detectBtnEl.textContent = 'Location detected';
-          },
-          err => {
-            console.warn('Geolocation failed:', err);
-            locationNoteEl.textContent =
-              'Could not access your location. Please pick a store from the list.';
-            detectBtnEl.disabled = false;
-            detectBtnEl.textContent = 'Detect my location';
+          if (!navigator.geolocation) {
+              locationNoteEl.innerHTML = "❌ Your browser doesn't support geolocation.";
+              return;
           }
-        );
+
+          detectBtnEl.innerHTML = "⏳ Detecting...";
+          detectBtnEl.disabled = true;
+
+          navigator.geolocation.getCurrentPosition(
+              (position) => {
+                  const userLat = position.coords.latitude;
+                  const userLng = position.coords.longitude;
+
+                  // Calculate distance for all stores
+                  const storesWithDist = allStores.map(store => {
+                      return {
+                          ...store,
+                          distance: calculateDistance(userLat, userLng, store.lat, store.lng)
+                      };
+                  });
+
+                  // Sort by nearest
+                  storesWithDist.sort((a, b) => a.distance - b.distance);
+
+                  // Update UI
+                  renderStoreList(storesWithDist);
+                  detectBtnEl.innerHTML = "📍 Location Detected";
+                  locationNoteEl.innerHTML = `Found nearest store: <strong>${storesWithDist[0].name}</strong>`;
+                  detectBtnEl.disabled = false;
+              },
+              (error) => {
+                  console.error("Geo Error:", error);
+                  let msg = "Unable to retrieve location.";
+                  if (error.code === 1) msg = "❌ Permission denied. Please allow location access.";
+                  if (error.code === 2) msg = "❌ Position unavailable (try turning on GPS).";
+                  if (error.code === 3) msg = "❌ Timeout. Try again.";
+
+                  // Security check note
+                  if (window.location.protocol === 'file:') {
+                      msg += " (Note: Browsers block location on 'file://' urls. Use a local server)";
+                  }
+
+                  locationNoteEl.innerText = msg;
+                  detectBtnEl.innerHTML = "📍 Retry Detection";
+                  detectBtnEl.disabled = false;
+              },
+              {
+                  enableHighAccuracy: true,
+                  timeout: 10000,
+                  maximumAge: 0
+              }
+          );
       });
-    } else if (detectBtnEl) {
-      detectBtnEl.disabled = true;
-      locationNoteEl.textContent =
-        'Location detection is not available in this browser. Please pick a store from the list.';
     }
+
+    // Initial Load
+    renderStoreList(allStores);
+
+    // ---------------------------------------------------------
+    // Force external contact links to open reliably in new tabs
+    // ---------------------------------------------------------
+    function bindExternalLink(id) {
+      const el = document.getElementById(id);
+      if (!el) return;
+      el.addEventListener('click', (e) => {
+        const href = el.getAttribute('href');
+        if (!href) return;
+        e.preventDefault();
+        window.open(href, '_blank');
+      });
+    }
+
+    // 3 social cards
+    bindExternalLink('zusWebsiteLink');
+    bindExternalLink('zusInstagramLink');
+    bindExternalLink('zusFacebookLink');
+
+    // 2 map buttons under the map
+    bindExternalLink('gmapsLink');
+    bindExternalLink('wazeLink');
 
   </script>
 </body>
