@@ -176,8 +176,7 @@
       <a href="#inside">Inside ZUS</a>
       <a href="#drinks">Drinks</a>
       <a href="#projection">Projection Mapping</a>
-      <a href="#loops">Loop Video</a>
-      <a href="#about">About</a>
+      <a href="#projection-cup">3D Thermos</a> 
       <a href="#contact">Contact</a>
     </nav>
   </header>
@@ -333,46 +332,50 @@
       <div class="model-3d-viewer">
         <model-viewer
           id="zus-cup"
-          src="assets/cup_thermos_v1.glb"
+          src="assets/cup_thermos_v2.glb"
           alt="ZUS Projection Thermos 3D Model"
           auto-rotate
           camera-controls
           ar
-          shadow-intensity="1.25"
-          exposure="0.95"
+
+          environment-image="assets/studio_small_09_4k.hdr"
+
+          exposure="1.75"
+          shadow-intensity="1.4"
+          shadow-softness="1.0"
+
           field-of-view="25deg"
           camera-orbit="0deg 75deg 2.5m"
           loading="eager"
-          style="--poster-color: transparent;"
         ></model-viewer>
       </div>
 
       <!-- BUSINESS EXPLANATION -->
-      <div class="model-3d-info">
-        <h3>How this 3D cup supports ZUS Coffee</h3>
-        <ul>
-          <li>
-            <span>Projection-mapping mock-ups</span> – plan how graphics, fruits, and
-            characters will wrap around the cup before doing real projection tests.
-          </li>
-          <li>
-            <span>Marketing & social media visuals</span> – render clean, consistent
-            product shots for posters, menus, and Instagram without needing
-            physical photography every time.
-          </li>
-          <li>
-            <span>Interactive customer demo</span> – on the website, visitors can
-            freely rotate the cup to explore every angle, matching the “techy”
-            and modern ZUS brand.
-          </li>
-        </ul>
-        <p class="model-3d-note">
-          In a real café, the same thermos can be placed under the projector, so digital
-          loops from your projection mapping section appear directly on the cup body.
-          The 3D model is therefore a bridge between <strong>online concept</strong> and
-          <strong>offline in-store experience</strong>.
-        </p>
+    <div class="model-3d-info">
+      <h3>How this 3D cup supports ZUS Coffee</h3>
+
+      <div class="info-grid">
+        <div class="info-card">
+          <h4>Projection mock-ups</h4>
+          <p>Preview how graphics wrap on the cup before any physical testing.</p>
+        </div>
+
+        <div class="info-card">
+          <h4>Marketing visuals</h4>
+          <p>Clean, consistent renders for posters, menus, and social media.</p>
+        </div>
+
+        <div class="info-card">
+          <h4>Interactive demo</h4>
+          <p>Visitors can rotate and explore the ZUS cup in 3D on the website.</p>
+        </div>
       </div>
+
+      <p class="model-3d-note">
+        In real cafés, the same 3D thermos can be placed under a projector, linking the
+        <strong>digital concept</strong> with the <strong>in-store experience</strong>.
+      </p>
+    </div>
     </div>
   </section>
 
