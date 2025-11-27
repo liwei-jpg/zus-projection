@@ -625,15 +625,40 @@ model-viewer#zus-cup {
 
 /* Text card */
 .model-3d-info {
-  max-width: 520px;
+  max-width: 720px;
+}
+
+/* ⭐ 包住整段文字的容器，宽度居中 */
+.model-3d-info-block {
+  max-width: 1000px;      /* 保持内容不会太宽 */
+  margin: 40px auto 0;    /* 自动居中 */
+  text-align: center;     /* ⭐ 全部文字居中 */
+}
+
+/* ⭐ 大标题 */
+.model-3d-info-block h3 {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #F7C744;
+  margin-bottom: 26px;
+  text-shadow: 0 0 12px rgba(247,199,68,0.25);
 }
 
 /* 方格布局 */
 .info-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);   /* ⭐ 变成 3 栏横排 */
-  gap: 18px;
-  margin: 18px 0 16px;
+  grid-template-columns: repeat(3, minmax(200px, 1fr));
+  gap: 22px;
+  margin-bottom: 28px;
+}
+
+/* ⭐ caption */
+.model-3d-note {
+  color: #cbd5f5;
+  font-size: 1rem;
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 1.6;
 }
 
 /* 单个卡片 */
